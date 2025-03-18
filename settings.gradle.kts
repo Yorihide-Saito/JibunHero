@@ -21,3 +21,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "JibunHero"
 include(":app")
+include(":feature")
+include(":domain")
+include(":data")
+include(":model")
