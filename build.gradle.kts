@@ -8,3 +8,21 @@ plugins {
     alias(libs.plugins.dokka) apply false
     alias(libs.plugins.spotless) apply false
 }
+
+subprojects {
+    apply(plugin = rootProject.libs.plugins.spotless.get().pluginId)
+
+    // サブモジュールに spotless の適応を行う
+    // https://github.com/diffplug/spotless/tree/main/plugin-gradle#kotlin
+    configure<com.diffplug.gradle.spotless.SpotlessExtension> {
+        kotlin {
+            target("**/*.kt")
+            ktlint()
+        }
+
+        kotlinGradle {
+            target("*.gradle.kts")
+            ktlint()
+        }
+    }
+}
