@@ -40,7 +40,10 @@ android {
 }
 
 dependencies {
+    // モジュール
+    implementation(project(":feature"))
 
+    // Android 標準
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
